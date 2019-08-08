@@ -24,5 +24,5 @@ labeled_correlations[144:192] = two_point_correlations_bicontinuous
     
 # This splits the correlations into training (80%) and test (20%) sets
 # Setting "random_state" allows for reproducibility - if you change it, you can get a different split
-labeled_train, labeled_test, label_list_train, label_list_test, image_number_train, image_number_test = train_test_split(labeled_correlations,label_list,image_number_list,test_size=0.20,random_state=2018)
+labeled_train, labeled_test, label_list_train, label_list_test, image_number_train, image_number_test = train_test_split(labeled_correlations,label_list,image_number_list,test_size=154,random_state=2018)
 
