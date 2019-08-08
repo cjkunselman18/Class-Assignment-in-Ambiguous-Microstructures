@@ -7,9 +7,9 @@ unknown_labels = baseline_svm.predict(processed_unknown)
 label_list_retrain = label_list_train + list(unknown_labels)
 
 # and append the training set
-processed_no_test = np.ones((2055,3))
-processed_no_test[0:1536,:] = processed_train
-processed_no_test[1536:2055,:] = processed_unknown
+processed_no_test = np.ones((205,3))
+processed_no_test[0:153,:] = processed_train
+processed_no_test[153:205,:] = processed_unknown
 
 # create a new classification object with the same kernel/hyperparameters, and retrain
 svm_retrain = clf.best_estimator_
