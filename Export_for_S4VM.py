@@ -17,7 +17,7 @@ for col, data in enumerate(processed_no_test.T):
 
 workbook.close()
 
-workbook = xlsxwriter.Workbook('Processed Auto Correlation Data Labels.xlsx')
+workbook = xlsxwriter.Workbook('Processed Autocorrelation Data Labels.xlsx')
 worksheet = workbook.add_worksheet()
 
 worksheet.write(0,0, 'labels')
