@@ -1,3 +1,4 @@
+
 % read in data from excel document
 data = readtable('Processed Autocorrelation Data.xlsx')
 labels = readtable('Processed Autocorrelation Data Labels.xlsx')
@@ -11,15 +12,16 @@ X_train = data(1:153,:);
 X_unknown = data(154:205,:);
 labels_train = labels;
 
-% parameters
+% parameters - C1 is from the baseline SVM, and the rest are defaults
 C1 = 10;
 C2 = 0.1;
-gamma = 0.1;
+gamma = 0;
 sampleTime = 100;
 
 % run S4VM; "prediction" is the predicted labels for the unlabeled set
+% the linear kernel is from the baseline SVM
 addpath('libsvm-mat-2.89-3-box constraint');
-prediction=S4VM(X_train,labels_train,X_unknown,'RBF',C1,C2,sampleTime,gamma);
+prediction=S4VM(X_train,labels_train,X_unknown,'Linear',C1,C2,sampleTime,gamma);
 
 
 % write to new excel document so we can load these results back into python
