@@ -33,9 +33,7 @@ bicontin_cluster_label = clusters[bicontin_sample]
 for i in range(0,205):
     if clusters[i] == precip_cluster_label:
         clusters[i] = 1
-
-for i in range(0,205):
-    if clusters[i] == bicontin_cluster_label:
+    else:
         clusters[i] = -1
         
 cop_kmeans_labels = clusters[153:205]
