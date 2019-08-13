@@ -1,7 +1,7 @@
 
 % read in data from excel document
-data = readtable('Processed Autocorrelation Data.xlsx')
-labels = readtable('Processed Autocorrelation Data Labels.xlsx')
+data = readtable('Processed Autocorrelation Data.xlsx');
+labels = readtable('Processed Autocorrelation Data Labels.xlsx');
 
 % the above command turns the data into tables -- use this to get arrays
 data = table2array(data);
@@ -29,7 +29,7 @@ prediction_test = S4VM(X_train,labels_train,X_test,'Linear',C1,C2,sampleTime,gam
 
 % if this is true, the method passes
 max(abs(prediction_test - labels(154:192))) == 0
-
+% for the problem as structured, it passes!
 
 % write to new excel document so we can load these results back into python
 prediction_table = array2table(prediction_unlabeled)
