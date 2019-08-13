@@ -13,16 +13,14 @@ bicontin_cluster_label_test = clusters_test[bicontin_sample]
 for i in range(0,192):
     if clusters_test[i] == precip_cluster_label_test:
         clusters_test[i] = 1
-
-for i in range(0,192):
-    if clusters_test[i] == bicontin_cluster_label_test:
+    else:
         clusters_test[i] = -1
         
 cop_kmeans_labels_test = clusters_test[153:192]
 
 criterion_check = np.amax(abs(np.array(label_list_test) - np.array(cop_kmeans_labels_test))) == 0
 print(criterion_check)
-
+# Failed for the provided problem
 
 # Check the second criterion 
 label_list_cop = label_list_train + cop_kmeans_labels
@@ -63,4 +61,7 @@ plt.figure(1)
 sns.heatmap(mat.T, square=True, annot=True, fmt='d', cbar=False,xticklabels=[-1,1],yticklabels=[-1,1])
 plt.xlabel('True Label')
 plt.ylabel('Predicted Label')
+
+# Similar to the results in the paper on the full dataset, this method failed both criteria, but it 
+# did not fail the second by much
 
