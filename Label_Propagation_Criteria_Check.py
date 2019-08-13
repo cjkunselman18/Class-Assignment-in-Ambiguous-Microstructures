@@ -17,8 +17,8 @@ for i in range(0,39):
         label_propagation_test_labels[i] = -1
         
 # and we check to see if they are the same
-criterion_check = np.amax(abs(np.array(label_list_test) - label_propagation_test_labels))
-
+criterion_check = np.amax(abs(np.array(label_list_test) - label_propagation_test_labels)==0)
+print(criterion_check)
 
 # Check the second criterion
 label_list_prop = label_list_train + list(label_propagation_unknown_labels)
@@ -59,6 +59,11 @@ plt.figure(1)
 sns.heatmap(mat.T, square=True, annot=True, fmt='d', cbar=False,xticklabels=[-1,1],yticklabels=[-1,1])
 plt.xlabel('True Label')
 plt.ylabel('Predicted Label')
+
+# For the provided problem, this criterion is not passed because the training accuracy is less than 100%.
+# The gamma value found from the heuristic above is an order of magnitude smaller than that of the entire dataset
+# considered in the paper; thus, raising the gamma value for this problem may allow this criterion to be passed for
+# this smaller dataset
 
 
 
