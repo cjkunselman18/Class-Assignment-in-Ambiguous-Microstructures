@@ -38,7 +38,7 @@ for i in range(0,205):
     if clusters[i] == bicontin_cluster_label:
         clusters[i] = -1
         
-cop_kmeans_labels = clusters[192:205]
+cop_kmeans_labels = clusters[153:205]
         
 
 
