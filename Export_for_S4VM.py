@@ -5,9 +5,9 @@ import xlsxwriter
 workbook = xlsxwriter.Workbook('Processed Autocorrelation Data.xlsx')
 worksheet = workbook.add_worksheet()
 
-worksheet.write(0,0, 'PC1')
-worksheet.write(0,1, 'PC2')
-worksheet.write(0,2, 'PC3')
+for i in range(1,51):
+    worksheet.write(0,i-1, 'PC%s' % (i))
+
 
 row = 1
 
