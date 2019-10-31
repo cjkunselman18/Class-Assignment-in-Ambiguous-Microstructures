@@ -29,16 +29,12 @@ to run the scripts separately, follow the instructions below.
 1) Download and save all of the files. Open Preprocess_Microstructure_Images.py and update the file paths for the dataset (the images in 
 Example_Microstructures.zip). Run this script. The data is now binarized and ready for characterization.
 
-2) Open Characterization_Black_Autocorrelation.py. If you would like to a visualization of the black autocorrelation metric, uncomment
-the appropriate line in the script. Run this script. All black autocorrelations are now calculated.
+2) Open Characterization_Normalized_Black_Autocorrelation.py. If you would like to a visualization of the black autocorrelation metric, uncomment the appropriate line in the script. Run this script. All black autocorrelations are now calculated.
 
 3) Open Split_Train_Test.py. Similar to the paper, this example is set for a test set of about 20% of the initially labeled samples and
 the random seed is set for reproducibility. I recommend not changing these values until you run through the example at least once. Also,
 changes to test set size will require changes to many other scripts. Run this script. You now have labeled training and test sets.
 
-4) Open either PCA_on_Autocorrelations.py or PCA_on_Autocorrelations.py. The dataset in this example is small enough for you to use
-regular PCA, but if you want to follow the paper method more closely, you can use IPCA instead. PCA is performed on the labeled training
-set only, and the labeled test and initially unlabeled sets are projected into the resulting subspace. Run one of these scripts. The 
-featurized data is now reduced to three dimensions.
+4) Open either PCA_on_Normalized_Correlations.py or IPCA_on_Normalized_Correlations.py. The dataset in this example is small enough for you to use regular PCA, but if you want to follow the paper method more closely, you can use IPCA instead. PCA is performed on a combination of the labeled training and ambiguous sets, and the labeled test set is projected into the resulting subspace. Run one of these scripts. The feature space is now reduced to fifty dimensions.
 
 
