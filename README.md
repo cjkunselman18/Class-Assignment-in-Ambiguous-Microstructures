@@ -14,6 +14,7 @@ numpy,
 seaborn,
 xlrd,
 xlsxwriter,
+statsmodels,
 math,
 and copkmeans (https://github.com/Behrouz-Babaki/COP-Kmeans).
 
