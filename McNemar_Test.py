@@ -19,11 +19,11 @@ for i in range(0,39):
     if (baseline_test_contingency[i] == 1 and updated_test_contingency[i] == 1):
         contingency_table[0][0] = contingency_table[0][0] + 1
     if (baseline_test_contingency[i] == 1 and updated_test_contingency[i] == 0):
-        contingency_table[0][1] = st_test_table[0][1] + 1
+        contingency_table[0][1] = contingency_table[0][1] + 1
     if (baseline_test_contingency[i] == 0 and updated_test_contingency[i] == 1):
-        contingency_table[1][0] = st_test_table[1][0] + 1
+        contingency_table[1][0] = contingency_table[1][0] + 1
     if (baseline_test_contingency[i] == 0 and updated_test_contingency[i] == 0):
-        contingency_table[1][1] = st_test_table[1][1] + 1
+        contingency_table[1][1] = contingency_table[1][1] + 1
         
 # this runs McNemar's test and gives us a pvalue
 mcnemar_result = mcnemar(contingency_table, exact=True)
