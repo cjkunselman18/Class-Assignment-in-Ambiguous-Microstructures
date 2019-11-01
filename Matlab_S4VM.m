@@ -15,17 +15,17 @@ labels_train = labels(1:153);
 % parameters - C1 is from the baseline SVM, and the rest are defaults
 C1 = 10;
 C2 = 0.1;
-gamma = 0;
+gamma = 0.01;
 sampleTime = 100;
 
 % run S4VM; "prediction_unlabeled" is the predicted labels for the unlabeled set
 % the linear kernel is from the baseline SVM
 addpath('libsvm-mat-2.89-3-box constraint');
-prediction_unlabeled = S4VM(X_train,labels_train,X_unknown,'Linear',C1,C2,sampleTime,gamma);
+prediction_unlabeled = S4VM(X_train,labels_train,X_unknown,'RBF',C1,C2,sampleTime,gamma);
 
 % check the first criterion - that the S4VM method labels the test set correctly
 X_test = data(154:192,:);
-prediction_test = S4VM(X_train,labels_train,X_test,'Linear',C1,C2,sampleTime,gamma);
+prediction_test = S4VM(X_train,labels_train,X_test,'RBF',C1,C2,sampleTime,gamma);
 
 % if this is true, the method passes
 max(abs(prediction_test - labels(154:192))) == 0
@@ -33,5 +33,5 @@ max(abs(prediction_test - labels(154:192))) == 0
 
 % write to new excel document so we can load these results back into python
 prediction_table = array2table(prediction_unlabeled)
-filename = 'S4VM_Prediction.xlsx'
+filename = 'S4VM_Label_Prediction.xlsx'
 writetable(prediction_table,filename)
