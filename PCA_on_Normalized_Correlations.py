@@ -30,7 +30,7 @@ pca_matrix[153:(153+52),:] = unknown_matrix
 
 
 # This runs PCA and fits it to the training/unlabeled sets
-pca = PCA(50)
+pca = PCA(50,random_state=2018)
 pca.fit(pca_matrix)
 
 # Here we see how much variance is explained by the 50 PCs
