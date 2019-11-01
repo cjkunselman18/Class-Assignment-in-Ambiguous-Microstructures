@@ -4,6 +4,7 @@ from sklearn import preprocessing
 from sklearn.model_selection import GridSearchCV
 from sklearn.svm import SVC
 from sklearn.metrics import confusion_matrix
+from sklearn.model_selection import KFold
 import seaborn as sns; sns.set()
 
 # We first need to standardize the data, and then separate it back into training/test/unlabeled (another
@@ -28,7 +29,10 @@ tuned_parameters = [{'kernel': ['linear'], 'C': [1, 10, 100, 1000,10000]},{'kern
 print("# Tuning hyper-parameters for accuracy")
 print()
 
-clf = GridSearchCV(SVC(probability = True,max_iter=10000), tuned_parameters, cv=5,
+
+cv = KFold(n_splits = 5,random_state=2018)
+
+clf = GridSearchCV(SVC(probability = True), tuned_parameters, cv=cv,
                        scoring='accuracy' )
 clf.fit(processed_train, label_list_train)
 
@@ -60,4 +64,3 @@ plt.figure(1)
 sns.heatmap(mat.T, square=True, annot=True, fmt='d', cbar=False,xticklabels=[-1,1],yticklabels=[-1,1])
 plt.xlabel('True Label')
 plt.ylabel('Predicted Label')
-
