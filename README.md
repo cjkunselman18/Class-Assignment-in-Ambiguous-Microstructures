@@ -39,4 +39,6 @@ changes to test set size will require changes to many other scripts. Run this sc
 
 5) Open Train_Baseline_SVM.py. This is the SVM trained only on the initially labeled training set. Run this script. Training and test error estimates can be calculated from the resulting confusion matrices.
 
+6) Open Modified_Yarowsky.py and run. The remaining semi-supervised methods can be completed in any order. For Label Propagation and COP-KMEANS, just open the .py files and execute. As mentioned above, S4VM is implemented in MATLAB. If you do not want to bother with transferring data, the results for the specific example set up in this code are in S4VM_Label_Prediction.xlsx. If you want to go through the whole process, open Export_S4VM.py and run. This will produce an excel files called Processed Auto Correlation Data.xlsx and Processed Auto Correlation Data Labels.xlsx. Put these files into the same folder as the code for the S4VM method. Open Matlab_S4VM.m in Matlab and run. This will produce an excel file called S4VM_Label_Prediction.xlsx (and it should match the file available in this respository if you are following the example). Close Matlab and move this file to your working directory for python. Open Import_S4VM_Results.py and run. You now have labels for the ambiguous set from all four semi-supervised methods.
+
 
