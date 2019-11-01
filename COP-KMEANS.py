@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from copkmeans.cop_kmeans import cop_kmeans
+import random
 
 must_link = []
 
@@ -21,6 +22,7 @@ for i in range(bicontin_sample + 1,153):
 # We do not want anything with different labels to be linked
 cannot_link = [(precip_sample,bicontin_sample)]
 
+random.seed(18)
 # This command runs the method; clusters are the label assignments
 clusters, centers = cop_kmeans(dataset=processed_no_test, k=2, ml=must_link,cl=cannot_link)
 
