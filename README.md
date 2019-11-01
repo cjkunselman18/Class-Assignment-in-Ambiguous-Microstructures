@@ -35,7 +35,7 @@ Example_Microstructures.zip). Run this script. The data is now binarized and rea
 the random seed is set for reproducibility. I recommend not changing these values until you run through the example at least once. Also,
 changes to test set size will require changes to many other scripts. Run this script. You now have labeled training and test sets.
 
-4) Open either PCA_on_Normalized_Correlations.py or IPCA_on_Normalized_Correlations.py. The dataset in this example is small enough for you to use regular PCA, but if you want to follow the paper method more closely, you can use IPCA instead. PCA is performed on a combination of the labeled training and ambiguous sets, and the labeled test set is projected into the resulting subspace. Run one of these scripts. The feature space is now reduced to fifty dimensions.
+4) Open either PCA_on_Normalized_Correlations.py or IPCA_on_Normalized_Correlations.py. The dataset in this example is small enough for you to use regular PCA, but if you want to follow the paper method more closely, you can use IPCA instead. PCA is performed on a combination of the labeled training and ambiguous sets, and the labeled test set is projected into the resulting subspace. Run one of these scripts (this example assumes regular PCA is used). The feature space is now reduced to fifty dimensions. Note that using IPCA (and tweaking the batch size) can change hyperparameter selection in the next step.
 
 5) Open Train_Baseline_SVM.py. This is the SVM trained only on the initially labeled training set. Run this script. Training and test error estimates can be calculated from the resulting confusion matrices.
 
