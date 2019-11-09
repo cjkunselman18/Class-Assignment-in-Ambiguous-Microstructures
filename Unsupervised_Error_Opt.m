@@ -20,6 +20,13 @@ ms = MultiStart;
 ms = MultiStart(ms,'UseParallel',true);
 [opt_c1,opt_cost_c1] = run(ms,problem,3000)
 
+% The error rates are
+e1_c1 = opt_c1(1);  % Modified Yarowsky
+e2_c1 = opt_c1(2);  % Label Propagation
+e3_c1 = opt_c1(3);  % COP-KMEANS
+e4_c1 = opt_c1(4);  % S4VM
+e5_c1 = opt_c1(5);  % Updated
+
 % define second cost function (much simpler)
 c2 = @(x) x(1) + x(2) + x(3) + x(4) + x(5);
 
@@ -32,3 +39,10 @@ problem = createOptimProblem('fmincon','objective',...
 ms = MultiStart;
 ms = MultiStart(ms,'UseParallel',true);
 [opt_c2,opt_cost_c2] = run(ms,problem,3000)
+
+% The error rates are
+e1_c2 = opt_c2(1);  % Modified Yarowsky
+e2_c2 = opt_c2(2);  % Label Propagation
+e3_c2 = opt_c2(3);  % COP-KMEANS
+e4_c2 = opt_c2(4);  % S4VM
+e5_c2 = opt_c2(5);  % Updated
