@@ -1,8 +1,6 @@
 This repository complements the paper "Semi-supervised Learning Approaches to Class Assignment in Ambiguous Microstructures" by providing
-an example of the workflow on a small sample (10%) of the dataset. There are two options for you to explore this workflow:
+an example of the workflow on a small sample (10%) of the dataset. 
 
-1) Use the provided Jupyter Notebook and run the code cell-by-cell, or
-2) Follow this guide to run each script in order.
 
 To run the all of the python code, you will need the following packages:
 scikit-image,
@@ -42,6 +40,10 @@ changes to test set size will require changes to many other scripts. Run this sc
 
 6) Open Modified_Yarowsky.py and run. The remaining semi-supervised methods can be completed in any order. For Label Propagation and COP-KMEANS, just open the .py files and execute. As mentioned above, S4VM is implemented in MATLAB. If you do not want to bother with transferring data, the results for the specific example set up in this code are in S4VM_Label_Prediction.xlsx. If you want to go through the whole process, open Export_S4VM.py and run. This will produce an excel files called Processed Auto Correlation Data.xlsx and Processed Auto Correlation Data Labels.xlsx. Put these files into the same folder as the code for the S4VM method. Open Matlab_S4VM.m in Matlab and run. This will produce an excel file called S4VM_Label_Prediction.xlsx (and it should match the file available in this respository if you are following the example). Close MATLAB and move this file to your working directory for python. Open Import_S4VM_Results.py and run. You now have labels for the ambiguous set from all four semi-supervised methods.
 
-7) Open Train_Updated_SVM.py and run. This script will identify the subset of ambiguous points which have a labelling consensus from the methods in step (6), add this subset to the training set, and train a new SVM over this appended training set. Then open McNemar_Test.py and run. This script constructs the contingency table for the baseline and updated SVMs and performs McNemar's test. If you followed the provided example exactly, the sum of discordant pairs is only 1, so the exact version of the test is used.
+7) Open Train_Updated_SVM.py and run. This script will identify the subset of ambiguous points which have a labeling consensus from the methods in step (6), add this subset to the training set, and train a new SVM over this appended training set. Then open McNemar_Test.py and run. This script constructs the contingency table for the baseline and updated SVMs and performs McNemar's test. If you followed the provided example exactly, the sum of discordant pairs is only 1, so the exact version of the test is used.
+
+8) Open Train_SVMs_Over_SS_Results.py and run. This script optimizes hyperparameters and then trains an SVM over training sets consisting of the initially labeled training set and the ambiguous set with labels assigned by each semi-supervised method. Once again, labeled error rate estimates can be calculated from  resulting confusion matrices. Open Determine_and_Export_Agreement_Rates.py and run. This script has each of the classifiers make predictions on the ambiguous set and then calculates agreement rate estimates for each subset of classifiers greater than two. It then writes these estimates into an excel file (Agreement Counts.xlsx) to be imported into MATLAB for unsupervised error estimation.
+
+9) Save Unsupervised_Error_Opt.m, Unsupervised_Error_Constraints.m, and c1.m, and Agreement Counts.xlsx to the same folder and open Unsupervised_Error_Opt.m in MATLAB. This script will read in the agreement counts from the previous step and run the unsupervised error estimation algorithm for both cost functions (c1 and c2). 
 
 
