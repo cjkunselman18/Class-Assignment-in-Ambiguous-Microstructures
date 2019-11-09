@@ -64,7 +64,7 @@ print()
 
 clf = GridSearchCV(SVC(probability = True,max_iter=10000), tuned_parameters, cv=cv,
                        scoring='accuracy' )
-clf.fit(processed_no_test, label_list_train + list(clusters[1536:2055]))
+clf.fit(processed_no_test, label_list_train + list(clusters[153:205]))
 
 print("Best parameters set found on development set:")
 print()
@@ -112,7 +112,7 @@ for mean, std, params in zip(means, stds, clf.cv_results_['params']):
 tsvm_svm = clf.best_estimator_
 predicted_test_labels_tsvm = tsvm_svm.predict(processed_test)
 mat = confusion_matrix(label_list_test, predicted_test_labels_tsvm)
-plt.figure(0)
+plt.figure(3)
 sns.heatmap(mat.T, square=True, annot=True, fmt='d', cbar=False,xticklabels=[-1,1],yticklabels=[-1,1])
 plt.xlabel('True Label')
 plt.ylabel('Predicted Label')
