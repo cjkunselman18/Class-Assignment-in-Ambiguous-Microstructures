@@ -68,12 +68,12 @@ for i in range(0,52):
         counter[25] = counter[25] + 1
         
         
-        # Now we need to export these values for optimization in Matlab
-        workbook = xlsxwriter.Workbook('Agreement Counts.xslx')
-        worksheet = workbook.add_worksheet
-        
-        worksheet.write(0,0, 'Agreement Counts')
-        worksheet.write_column(1,0, counter.T)
-        
-        workbook.close()
-        
+# Now we need to export these values for optimization in Matlab
+workbook = xlsxwriter.Workbook('Agreement Counts.xlsx')
+worksheet = workbook.add_worksheet()
+
+worksheet.write(0,0, 'Agreement Counts')
+worksheet.write_column(1,0, counter.T)
+
+
+workbook.close()
