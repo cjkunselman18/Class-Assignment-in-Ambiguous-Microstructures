@@ -23,14 +23,6 @@ sampleTime = 100;
 addpath('libsvm-mat-2.89-3-box constraint');
 prediction_unlabeled = S4VM(X_train,labels_train,X_unknown,'RBF',C1,C2,sampleTime,gamma);
 
-% check the first criterion - that the S4VM method labels the test set correctly
-X_test = data(154:192,:);
-prediction_test = S4VM(X_train,labels_train,X_test,'RBF',C1,C2,sampleTime,gamma);
-
-% if this is true, the method passes
-max(abs(prediction_test - labels(154:192))) == 0
-% for the problem as structured, it passes!
-
 % write to new excel document so we can load these results back into python
 prediction_table = array2table(prediction_unlabeled)
 filename = 'S4VM_Label_Prediction.xlsx'
