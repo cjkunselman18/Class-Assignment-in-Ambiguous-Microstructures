@@ -18,12 +18,11 @@ and copkmeans (https://github.com/Behrouz-Babaki/COP-Kmeans).
 
 
 The S4VM method is implemented in MATLAB and requires code from the authors 
-(http://lamda.nju.edu.cn/code_S4VM.ashx?AspxAutoDetectCookieSupport=1). If you do not have access to MATLAB, there is an R implementation
+(http://www.lamda.nju.edu.cn/code_S4VM.ashx). If you do not have access to MATLAB, there is an R implementation
 which you can try which I have not tried (https://rdrr.io/cran/RSSL/man/S4VM.html). There is also an Excel spreadsheet in this repository
 with results from this method on the specific problem posed in this example which can easily be imported into python.
 
-If you choose to use the Jupyter notebook, you can stop here, open it up, and follow the instructions to run this example. If you choose
-to run the scripts separately, follow the instructions below.
+INSTRUCTIONS:
 
 1) Download and save all of the files. Open Preprocess_Microstructure_Images.py and update the file paths for the dataset (the images in 
 Example_Microstructures.zip). Run this script. The data is now binarized and ready for characterization.
